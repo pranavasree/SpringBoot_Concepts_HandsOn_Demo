@@ -56,7 +56,7 @@ Try again later.
 ---
 
 
-# Explain Like a 10-Year-Old
+# Explanation
 
 Imagine you are playing a video game and the game needs to connect to the online game server.
 
