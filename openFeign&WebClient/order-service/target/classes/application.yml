@@ -1,0 +1,9 @@
+server:
+  port: 8089
+
+spring:
+  application:
+    name: order-service
+
+book-service:
+  url: http://localhost:8081
