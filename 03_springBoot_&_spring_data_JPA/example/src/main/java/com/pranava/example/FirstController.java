@@ -6,15 +6,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class FirstController {
 
-    @GetMapping("/hello")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public String satHello(){
-        return "Hello PRanav";
+   private final StudentRepository repository;
+
+    public FirstController(StudentRepository repository) {
+        this.repository = repository;
     }
 
-    @PostMapping("/post")
-    public String post(@RequestBody String message){
+    @PostMapping("/students")
+    public Student post(@RequestBody Student student){
 
-        return "request accepted" + message;
+        return repository.save(student);
+
     }
 }
