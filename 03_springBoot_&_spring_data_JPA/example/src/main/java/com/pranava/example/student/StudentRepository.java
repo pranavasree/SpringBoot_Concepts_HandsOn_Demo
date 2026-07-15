@@ -1,4 +1,4 @@
-package com.pranava.example;
+package com.pranava.example.student;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

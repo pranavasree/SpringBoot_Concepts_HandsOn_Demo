@@ -1,12 +1,12 @@
-package com.pranava.example;
+package com.pranava.example.school;
 
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.pranava.example.Student;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.util.List;
 

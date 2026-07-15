@@ -1,4 +1,4 @@
-package com.pranava.example;
+package com.pranava.example.school;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,21 +11,22 @@ import java.util.List;
 @RestController
 public class SchoolController {
 
-    private final SchoolRepository schoolRepository;
+    public final SchoolService schoolService;
 
-    public SchoolController(SchoolRepository schoolRepository) {
-        this.schoolRepository = schoolRepository;
+    public SchoolController( SchoolService schoolService) {
+        this.schoolService = schoolService;
     }
 
     @PostMapping("/schools")
-    public School create(@RequestBody School school){
-
-        return schoolRepository.save(school);
+    public SchoolDto create(@RequestBody SchoolDto dto){
+         return schoolService.create(dto);
     }
 
-    @GetMapping("/schools")
-    public List<School> findAll(){
 
-        return schoolRepository.findAll();
+
+    @GetMapping("/schools")
+    public List<SchoolDto> findAll(){
+
+        return schoolService.findAll();
     }
 }

@@ -1,7 +1,8 @@
-package com.pranava.example;
+package com.pranava.example.student;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.pranava.example.school.School;
 import jakarta.persistence.*;
 
 @Entity
