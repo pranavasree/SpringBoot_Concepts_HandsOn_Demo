@@ -1,8 +1,8 @@
 package com.pranava.example;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
 
 @Entity
 public class Student {
@@ -14,6 +14,48 @@ public class Student {
     private String lastName;
     private String email;
     private int age;
+
+
+    @OneToOne(mappedBy = "student",
+    cascade= CascadeType.ALL)
+    private StudentProfile studentProfile;
+
+    @ManyToOne
+    @JoinColumn(name = "school_id")
+    @JsonBackReference
+    private School school;
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public StudentProfile getStudentProfile() {
+        return studentProfile;
+    }
+
+    public void setStudentProfile(StudentProfile studentProfile) {
+        this.studentProfile = studentProfile;
+    }
+
+    public School getSchool() {
+        return school;
+    }
+
+    public void setSchool(School school) {
+        this.school = school;
+    }
 
     public Student() {
     }
