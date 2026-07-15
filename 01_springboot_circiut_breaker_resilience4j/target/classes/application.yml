@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: springboot-circuit-breaker-resilience4j
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      paymentService:
+        registerHealthIndicator: true
+
+        # It checks the last N calls
+        slidingWindowType: COUNT_BASED
+
+        # Look at the last 5 calls
+        slidingWindowSize: 5
+
+        # Start calculating failure rate only after 3 calls
+        minimumNumberOfCalls: 3
+
+        # If 50% or more calls fail, open the circuit
+        failureRateThreshold: 50
+
+        # Keep circuit open for 10 seconds
+        waitDurationInOpenState: 10s
+
+        # In HALF_OPEN state, allow 2 test calls
+        permittedNumberOfCallsInHalfOpenState: 2
+
+        # Automatically move from OPEN to HALF_OPEN after 10 seconds
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,circuitbreakers,circuitbreakerevents
+  endpoint:
+    health:
+      show-details: always

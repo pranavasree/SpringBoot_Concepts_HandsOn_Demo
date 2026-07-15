@@ -1,6 +1,7 @@
-package com.pranava.example.student;
+package com.pranava.example.profile;
 
 
+import com.pranava.example.student.Student;
 import jakarta.persistence.*;
 
 @Entity

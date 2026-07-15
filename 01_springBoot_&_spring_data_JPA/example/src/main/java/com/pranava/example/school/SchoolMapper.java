@@ -2,6 +2,7 @@ package com.pranava.example.school;
 
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class SchoolMapper {
     public School toSchool(SchoolDto dto){

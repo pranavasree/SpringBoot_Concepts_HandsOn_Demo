@@ -2,6 +2,7 @@ package com.pranava.example.student;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.pranava.example.profile.StudentProfile;
 import com.pranava.example.school.School;
 import jakarta.persistence.*;
 
@@ -84,7 +85,15 @@ public class Student {
         return email;
     }
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public int getAge() {
         return age;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
