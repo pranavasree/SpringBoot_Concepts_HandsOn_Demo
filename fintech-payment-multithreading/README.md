@@ -1123,7 +1123,7 @@ Avoid parallel execution when:
 
 ---
 
-# 15. Four-Year-Experience Interview Answer
+# 15. Interview Answer
 
 > In a fintech payment service, I used `CompletableFuture` to run independent balance, fraud, daily-limit, and compliance checks concurrently. These checks involved read operations and external-service-style latency, so sequential execution increased the API response time. I configured a dedicated bounded `ThreadPoolTaskExecutor` instead of using manually created threads or the common pool. Each validation had a timeout and converted failures into a rejected decision because fraud and compliance checks should fail closed.
 >
