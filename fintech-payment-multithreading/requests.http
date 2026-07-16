@@ -1,0 +1,50 @@
+### Read the seeded active account
+GET http://localhost:8081/api/accounts/1001
+
+### Successful payment: four validations run concurrently
+POST http://localhost:8081/api/payments
+Content-Type: application/json
+
+{
+  "idempotencyKey": "payment-demo-001",
+  "customerId": 501,
+  "accountId": 1001,
+  "amount": 250.00,
+  "merchantId": "SAFE-MERCHANT"
+}
+
+### Retry the same request: saved result is returned, account is not debited again
+POST http://localhost:8081/api/payments
+Content-Type: application/json
+
+{
+  "idempotencyKey": "payment-demo-001",
+  "customerId": 501,
+  "accountId": 1001,
+  "amount": 250.00,
+  "merchantId": "SAFE-MERCHANT"
+}
+
+### Fraud rejection
+POST http://localhost:8081/api/payments
+Content-Type: application/json
+
+{
+  "idempotencyKey": "payment-demo-002",
+  "customerId": 501,
+  "accountId": 1001,
+  "amount": 6000.00,
+  "merchantId": "RISK-MERCHANT"
+}
+
+### Compliance rejection using seeded blocked account
+POST http://localhost:8081/api/payments
+Content-Type: application/json
+
+{
+  "idempotencyKey": "payment-demo-003",
+  "customerId": 502,
+  "accountId": 1002,
+  "amount": 100.00,
+  "merchantId": "SAFE-MERCHANT"
+}
