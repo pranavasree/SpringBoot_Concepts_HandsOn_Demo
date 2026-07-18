@@ -1,0 +1,10 @@
+package com.example.fintech.reconciliation.model;
+
+public enum IssueType {
+    DUPLICATE_INTERNAL_REFERENCE,
+    DUPLICATE_BANK_REFERENCE,
+    MISSING_INTERNAL_TRANSACTION,
+    MISSING_BANK_TRANSACTION,
+    AMOUNT_MISMATCH,
+    STATUS_MISMATCH
+}

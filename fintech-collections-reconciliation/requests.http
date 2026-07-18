@@ -1,0 +1,52 @@
+### Reconcile internal ledger transactions with a bank settlement file
+POST http://localhost:8082/api/reconciliation
+Content-Type: application/json
+
+{
+  "internalTransactions": [
+    {
+      "referenceId": "TXN-1001",
+      "amount": 100.00,
+      "settlementDate": "2026-07-16",
+      "status": "SETTLED"
+    },
+    {
+      "referenceId": "TXN-1002",
+      "amount": 200.00,
+      "settlementDate": "2026-07-16",
+      "status": "SETTLED"
+    },
+    {
+      "referenceId": "TXN-1004",
+      "amount": 400.00,
+      "settlementDate": "2026-07-17",
+      "status": "PENDING"
+    }
+  ],
+  "bankTransactions": [
+    {
+      "referenceId": "TXN-1001",
+      "amount": 100.00,
+      "settlementDate": "2026-07-16",
+      "status": "SETTLED"
+    },
+    {
+      "referenceId": "TXN-1002",
+      "amount": 250.00,
+      "settlementDate": "2026-07-16",
+      "status": "SETTLED"
+    },
+    {
+      "referenceId": "TXN-1003",
+      "amount": 300.00,
+      "settlementDate": "2026-07-17",
+      "status": "SETTLED"
+    },
+    {
+      "referenceId": "TXN-1003",
+      "amount": 300.00,
+      "settlementDate": "2026-07-17",
+      "status": "SETTLED"
+    }
+  ]
+}

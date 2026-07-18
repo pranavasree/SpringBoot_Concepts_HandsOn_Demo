@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: fintech-collections-reconciliation
+
+server:
+  port: 8082
+
+logging:
+  level:
+    com.example.fintech: INFO
