@@ -1173,7 +1173,7 @@ Settlement files and issue reports may contain sensitive financial information a
 
 ---
 
-# 21. Four-Year-Experience Interview Answer
+# 21. Interview Answer
 
 > In a fintech reconciliation module, I compared our internal ledger records with bank settlement records. I first loaded internal transactions into a `LinkedHashMap` using the transaction reference as the key. This gave average constant-time lookup and preserved the original input order for deterministic reporting. I used `HashSet` for duplicate detection and to track matched references, `ArrayList` to collect reconciliation issues in discovery order, and `TreeMap` to maintain daily settlement totals in date order.
 >
